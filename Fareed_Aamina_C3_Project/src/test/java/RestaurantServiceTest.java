@@ -15,8 +15,8 @@ class RestaurantServiceTest {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = service.addRestaurant("Amelie's cafe", "Chennai", openingTime, closingTime);
-        restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Tomato Soup",125);
+        restaurant.addToMenu("Arabiatta Pasta", 350);
 
     }
 
@@ -46,8 +46,8 @@ class RestaurantServiceTest {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Tomato Soup",125);
+        restaurant.addToMenu("Arabiatta Pasta", 350);
 
         int initialNumberOfRestaurants = service.getRestaurants().size();
         service.removeRestaurant("Amelie's cafe");
@@ -59,8 +59,8 @@ class RestaurantServiceTest {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Tomato Soup",125);
+        restaurant.addToMenu("Arabiatta Pasta", 350);
 
         assertThrows(restaurantNotFoundException.class,()->service.removeRestaurant("Pantry d'or"));
     }
@@ -70,8 +70,8 @@ class RestaurantServiceTest {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Tomato Soup",125);
+        restaurant.addToMenu("Arabiatta Pasta", 350);
 
         int initialNumberOfRestaurants = service.getRestaurants().size();
         service.addRestaurant("Pumpkin Tales","Chennai",LocalTime.parse("12:00:00"),LocalTime.parse("23:00:00"));

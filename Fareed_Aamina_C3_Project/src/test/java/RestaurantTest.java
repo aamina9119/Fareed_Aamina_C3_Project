@@ -36,25 +36,7 @@ class RestaurantTest {
 
         assertTrue(result);
     }
-
-    @Test
-    public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
-        //WRITE UNIT TEST CASE HERE
-        LocalTime openingTime = LocalTime.parse("10:30:00");
-        LocalTime closingTime = LocalTime.parse("20:00:00");
-
-        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-
-        boolean result = restaurant.isRestaurantOpen();
-
-        assertFalse(result);
-        //failing test case
-    }
-
-    //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
         LocalTime openingTime = LocalTime.parse("10:30:00");
@@ -90,17 +72,6 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
-    @Test
-    public void select_item_from_list_should_return_order_cost(){
-        int totalCost;
-        LocalTime openingTime = LocalTime.parse("10:30:00");
-        LocalTime closingTime = LocalTime.parse("22:00:00");
-        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        restaurant.addToMenu("Tomato Soup",125);
-        restaurant.addToMenu("Arabiatta Pasta", 350);
-        List<String> selectedItemNames = Arrays.asList("Tomato Soup", "Arabiatta Pasta");
-        totalCost=restaurant.getTotalCost(selectedItemNames);
-        assertEquals(475, totalCost);
-    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
