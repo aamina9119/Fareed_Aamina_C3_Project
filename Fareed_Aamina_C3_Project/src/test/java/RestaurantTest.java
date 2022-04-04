@@ -49,6 +49,7 @@ class RestaurantTest {
 
         assertFalse(result);
         //failing test case
+    
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -92,5 +93,19 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
 
-    //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+   //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+@Test
+    public void select_item_from_list_should_return_order_cost(){
+        int totalCost;
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Tomato Soup",125);
+        restaurant.addToMenu("Arabiatta Pasta", 350);
+        List<String> selectedItemNames = Arrays.asList("Tomato Soup", "Arabiatta Pasta");
+        totalCost=restaurant.getTotalCost(selectedItemNames);
+        assertEquals(475, totalCost);
+    }
+
 }
