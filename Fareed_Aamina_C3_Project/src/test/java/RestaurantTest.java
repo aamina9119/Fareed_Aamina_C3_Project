@@ -36,7 +36,25 @@ class RestaurantTest {
 
         assertTrue(result);
     }
-        //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    @Test
+    public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
+        //WRITE UNIT TEST CASE HERE
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("20:00:00");
+
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+
+        boolean result = restaurant.isRestaurantOpen();
+
+        assertFalse(result);
+        //failing test case
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
         LocalTime openingTime = LocalTime.parse("10:30:00");
@@ -46,7 +64,8 @@ class RestaurantTest {
         restaurant.addToMenu("Arabiatta Pasta", 350);
 
         int initialMenuSize = restaurant.getMenu().size();
-        restaurant.addToMenu("Sizzling brownie",319);
+
+	restaurant.addToMenu("Sizzling brownie",319);
         assertEquals(initialMenuSize+1,restaurant.getMenu().size());
     }
     @Test
